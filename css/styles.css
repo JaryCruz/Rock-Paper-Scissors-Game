@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --scissors: hsl(40, 84%, 53%);
+  --paper: hsl(230, 89%, 65%);
+  --rock: hsl(349, 70%, 56%);
+  --dark-text: hsl(229, 25%, 31%);
+  --score-text: hsl(229, 64%, 46%);
+  --header-outline: hsl(217, 16%, 45%);
+  --white: hsl(0, 0%, 100%);
+}
+
+body {
+  background: radial-gradient(
+    circle at center,
+    hsl(214, 47%, 23%),
+    hsl(237, 49%, 15%)
+  );
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  overflow: hidden;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  overflow: hidden;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  translate: 0 75px;
+  height: 160px;
+  max-width: 768px;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 3px solid var(--header-outline);
+}
+
+header .header-score {
+  background: var(--white);
+  border-radius: 10px;
+  width: 20%;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header-score span {
+  color: var(--score-text);
+  letter-spacing: 2px;
+  font-size: 16px;
+  margin-bottom: -5px;
+}
+
+.header-score small {
+  font-size: 60px;
+  font-weight: bold;
+  color: var(--dark-text);
+}
+
+/* Selections */
+main {
+  width: 90%;
+  margin: 120px auto 0px auto;
+}
+
+.selections {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.selections .triangle-img {
+  position: absolute;
+  z-index: -1;
+}
+
+.selections .selection-scissors {
+  margin-left: 80px;
+}
+
+.selection {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border-width: 25px;
+  border-style: solid;
+  transition: all 200ms ease-in-out;
+}
+
+.selection .selection-scissors {
+  margin-left: 80px;
+}
+
+.selection:hover {
+  scale: 1.1;
+}
+
+.selection img {
+  scale: 1.4;
+}
+
+.selection-paper {
+  border-color: var(--paper);
+}
+
+.selection-scissors {
+  border-color: var(--scissors);
+}
+
+.selection-rock {
+  border-color: var(--rock);
+}
+
+.btn-rules {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  border: 1px solid var(--white);
+  border-radius: 10px;
+  background-color: transparent;
+  color: var(--white);
+  height: 40px;
+  padding: 5px 30px;
+  width: 120px;
+  letter-spacing: 1px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.btn-rules:hover {
+  opacity: 0.7;
+}
+
+/* Step 2 */
+.game-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 180px;
+  position: relative;
+}
+
+.game-result .selection {
+  width: 250px;
+  height: 250px;
+}
+
+.game-result .selection:hover {
+  scale: 1;
+}
+
+.circle {
+  width: 250px;
+  height: 250px;
+  background-color: hsl(214, 47%, 23%);
+  opacity: 0.5;
+  border-radius: 50%;
+}
+
+.game-result h2 {
+  text-align: center;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 30px;
+}
+
+.winner-info {
+  width: 200px;
+  text-align: center;
+}
+
+.winner-info h3 {
+  font-size: 50px;
+  width: 100%;
+  color: var(--white);
+}
+
+.winner-info button {
+  background-color: var(--white);
+  height: 40px;
+  width: 120px;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.winner-info button:hover {
+  color: red;
+}
+
+/* Modal */
+.modal {
+  position: absolute;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+  transition: 200ms ease-in-out;
+  z-index: 15;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.inner-modal {
+  background: var(--white);
+  width: 370px;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 0 auto;
+  margin-top: 250px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header button {
+  background: transparent;
+}
+
+.modal-header button:hover i {
+  color: #000;
+}
+
+.modal-header button i {
+  font-size: 25px;
+  color: #a5a3a3;
+}
+
+.modal-header p {
+  font-size: 25px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  header {
+    translate: 0 30px;
+    height: 110px;
+    padding: 12px;
+  }
+
+  header img {
+    scale: 0.8;
+  }
+
+  header .header-score {
+    width: 30%;
+    max-width: 120px;
+  }
+
+  .header-score span {
+    margin-bottom: 0px;
+    font-size: 14px;
+  }
+
+  .header-score small {
+    font-size: 40px;
+  }
+
+  main {
+    width: 90%;
+    margin: 100px auto 0px auto;
+  }
+
+  .selections {
+    gap: 10px;
+  }
+
+  .selection {
+    width: 150px;
+    height: 150px;
+    border-width: 15px;
+  }
+
+  .selections .selection-scissors {
+    margin-left: 50px;
+  }
+
+  .selection img {
+    scale: 1;
+  }
+
+  .selections .triangle-img {
+    scale: 0.7;
+  }
+
+  .btn-rules {
+    right: 50%;
+    translate: 50% 0;
+  }
+
+  main .game-result {
+    margin-top: 10px;
+    gap: 50px;
+  }
+
+  .game-result .selection {
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-result h2 {
+    font-size: 20px;
+  }
+
+  .circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .winner-info {
+    position: absolute;
+    bottom: -140px;
+  }
+
+  .winner-info h3 {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .selection {
+    width: 120px;
+    height: 120px;
+  }
+
+  .selections .triangle-img {
+    scale: 0.6;
+  }
+
+  .selection img {
+    scale: 0.8;
+  }
+
+  .inner-modal {
+    width: 100%;
+    height: 100%;
+    margin-top: 0px;
+  }
+
+  .inner-modal img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .modal-header {
+    margin-bottom: 50px;
+  }
+
+  .circle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .game-result .selection {
+    width: 120px;
+    height: 120px;
+  }
+}

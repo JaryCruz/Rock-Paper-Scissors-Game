@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script defer src="js/script.js"></script>
+  </head>
+  <body>
+    <header>
+      <img src="images/logo.svg" alt="" />
+      <div class="header-score">
+        <span>SCORE</span>
+        <small data-score>0</small>
+      </div>
+    </header>
+
+    <main>
+      <!-- Step 1 -->
+      <div class="selections" data-selections-container>
+        <img src="images/bg-triangle.svg" alt="" class="triangle-img" />
+        <div>
+          <button class="selection selection-paper" data-selection="paper">
+            <img src="images/icon-paper.svg" alt="" />
+          </button>
+          <button
+            class="selection selection-scissors"
+            data-selection="scissors"
+          >
+            <img src="images/icon-scissors.svg" alt="" />
+          </button>
+        </div>
+        <button class="selection selection-rock" data-selection="rock">
+          <img src="images/icon-rock.svg" alt="" />
+        </button>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="game-result hidden" data-result-step>
+        <div>
+          <h2>YOU PICKED</h2>
+          <button class="selection" data-your-selection>
+            <img src="images/icon-scissors.svg" alt="" />
+          </button>
+        </div>
+        <div class="winner-info">
+          <h3 data-text-winner>YOU WIN</h3>
+          <button class="btn-restart" data-btn-restart>PLAY AGAIN</button>
+        </div>
+        <div class="house-pick">
+          <h2>HOUSE PICKED</h2>
+          <div class="circle" data-loading-circle></div>
+          <button class="selection hidden" data-computer-selection>
+            <img src="images/icon-scissors.svg" alt="" />
+          </button>
+        </div>
+      </div>
+      <button class="btn-rules" data-btn-rules>RULES</button>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal hidden" data-rules-modal>
+      <div class="inner-modal">
+        <div class="modal-header">
+          <p>RULES</p>
+          <button data-btn-close>
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <img src="images/image-rules.svg" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
